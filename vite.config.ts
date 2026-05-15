@@ -7,13 +7,23 @@ export default defineConfig({
     tailwindcss(),
     viteStaticCopy({
       targets: [
-        { src: 'components', dest: '.' },
-        { src: 'js', dest: '.' },
-        { src: 'asset', dest: '.' },
-        { src: 'pages', dest: '.' },
+        { src: 'components/**/*', dest: 'components' },
+        { src: 'js/**/*', dest: 'js' },
+        { src: 'asset/**/*', dest: 'asset' },
+        { src: 'pages/**/*', dest: 'pages' },
       ]
     })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) return 'style.css'
+          return 'assets/[name]-[hash][extname]'
+        }
+      }
+    }
+  },
   server: {
     allowedHosts: true
   }
