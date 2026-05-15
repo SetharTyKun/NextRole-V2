@@ -1,18 +1,9 @@
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    viteStaticCopy({
-      targets: [
-        { src: 'components/**/*', dest: 'components' },
-        { src: 'js/**/*', dest: 'js' },
-        { src: 'asset/**/*', dest: 'asset' },
-        { src: 'pages/**/*', dest: 'pages' },
-      ]
-    })
   ],
   build: {
     rollupOptions: {
