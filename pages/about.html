@@ -27,24 +27,30 @@
                             </h1>
                             <p class="hero-desc" data-i18n="about-desc">NextRole is the leading job matching service specialized in IT in Cambodia. We offer the best IT career for you, grab it to consult with us now!</p>
                             <div class="hero-buttons">
-                                <button class="btn-primary" data-i18n="register-now">Register Now</button>
-                                <button class="btn-secondary">View Our Story</button>
+                                <a href="/pages/register.html" class="btn-primary" data-i18n="register-now">Register Now</a>
+                                <a href="#mission" class="btn-secondary">View Our Story</a>
                             </div>
                         </div>
                         <div class="hero-image-wrapper animate-fade-in-right">
                             <div class="hero-image">
                                 <div class="hero-image-gradient"></div>
-                                <div class="hero-image-icon">
-                                    <img src="/asset/about-page-icon/groups.svg" alt="groups" class="hero-icon" />
+                                <div class="hero-image-icon" onclick="openLightbox(this.querySelector('img').src)">
+                                    <img src="/asset/about-page-icon/Professional-Employer-Organisation-PEO-Services-in-Cambodia-scaled.jpg" alt="groups" />
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Lightbox Modal -->
+                        <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+                            <span onclick="closeLightbox()" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
+                            <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; border-radius:12px;" />
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Mission -->
-            <section class="mission-section reveal">
+            <section class="mission-section reveal" id="mission">
                 <div class="mission-container">
                     <h2 class="mission-title" data-i18n="about-mission-title">Our Mission</h2>
                     <p class="mission-desc" data-i18n="about-mission-desc">"To empower every professional in Cambodia to find their perfect career match using cutting-edge technology and human-centric service."</p>
@@ -109,6 +115,7 @@
 
     <script src="../components/navbar.js"></script>
     <script src="../components/footer.js"></script>
+    <script src="/js/about-us.js"></script>
 </body>
 
 </html>
