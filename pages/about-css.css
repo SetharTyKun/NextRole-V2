@@ -1,10 +1,6 @@
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html {
+    scroll-behavior: smooth;
 }
-
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--color-text);
@@ -13,6 +9,9 @@ body {
     line-height: 1.6;
 }
 
+#mission {
+    scroll-margin-top: 64px;
+}
 /* Flex Container */
 .flex-container {
     display: flex;
@@ -135,7 +134,7 @@ header {
 }
 .hero-label {
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-primary);
@@ -143,7 +142,7 @@ header {
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 36px;
     font-weight: 800;
     color: #0f172a;
     line-height: 1.2;
@@ -156,7 +155,7 @@ header {
 
 .hero-desc {
     color: #64748b;
-    font-size: 1.125rem;
+    font-size: 15px;
     line-height: 1.625;
     margin-bottom: 2rem;
 }
@@ -196,31 +195,16 @@ header {
 .btn-secondary:hover {
     background-color: #f8fafc;
 }
-
 .hero-image-wrapper {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .hero-image {
-    width: 100%;
-    aspect-ratio: 1;
-    background-color: #f1f5f9;
-    border-radius: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
     overflow: hidden;
-    rotate: 3deg;
-    transition: transform 0.5s ease;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
-
-.hero-image:hover {
-    rotate: 0deg;
-}
-
-.hero-image-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top right, #1A3A7A, transparent);
 }
 
 .hero-image-icon {
@@ -228,12 +212,20 @@ header {
     align-items: center;
     justify-content: center;
     height: 100%;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.hero-icon {
-    width: 96px;      /* 6rem = 96px */
-    height: 96px;
-    fill: #1A3A7A;           /* Changes fill color */
+.hero-image-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 0.3s ease;
+}
+
+.hero-image-icon img:hover {
+    transform: scale(1.03); /* subtle zoom on hover */
 }
 
 /* Mission Section */
@@ -249,14 +241,14 @@ header {
 }
 
 .mission-title {
-    font-size: 1.875rem;
+    font-size: 26px;
     font-weight: 800;
     color: #0f172a;
     margin-bottom: 2rem;
 }
 
 .mission-desc {
-    font-size: 1.25rem;
+    font-size: 15px;
     color: #475569;
     line-height: 1.625;
     font-style: italic;
@@ -274,7 +266,7 @@ header {
 }
 
 .values-title {
-    font-size: 1.875rem;
+    font-size: 26px;
     font-weight: 800;
     color: #0f172a;
     text-align: center;
@@ -322,7 +314,7 @@ header {
 .value-name {
     font-weight: 800;
     color: var(--color-text);
-    font-size: 0.875rem;
+    font-size: 14px;
 }
 
 /* Animations */
@@ -464,5 +456,13 @@ header {
         gap: 4px;
         flex: 1;
         justify-content: center;
+    }
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .mission-title,
+    .values-title {
+        font-size: 26px;
     }
 }

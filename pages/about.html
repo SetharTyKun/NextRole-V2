@@ -6,41 +6,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>About Us | NextRole</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="about-css.css">
 </head>
 
 <body>
     <div class="flex-container">
-        <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-10 flex items-center h-16 justify-between">
-          <div class="flex items-center gap-2 text-[18px] font-extrabold text-slate-800 w-[200px]">
-            <a href="../index.html" class="flex gap-2 items-center" style="text-decoration:none;">
-              <img src="../asset/logo.svg" alt="NextRole" width="28" height="28" class="w-7 h-7 hover:scale-110 hover:origin-center hover:rotate-90 transition-all duration-75 cursor-pointer" onerror="this.src='https://www.google.com/favicon.ico'"/>
-              <p style="font-family: 'Plus Jakarta Sans', sans-serif;">NextRole</p>
-            </a>
-          </div>
-
-          <div class="flex gap-1 justify-center items-center">
-            <a href="../index.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-[#1e40af] hover:bg-blue-50 transition-colors" style="text-decoration:none;">Home</a>
-            <a href="job.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-[#1e40af] hover:bg-blue-50 transition-colors" style="text-decoration:none;">Jobs</a>
-            <a href="media.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-[#1e40af] hover:bg-blue-50 transition-colors" style="text-decoration:none;">Media</a>
-            <a href="cv-builder.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-[#1e40af] hover:bg-blue-50 transition-colors" style="text-decoration:none;">CV Builder</a>
-            <a href="about.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-white bg-[#1e40af] transition-colors" style="text-decoration:none;">About Us</a>
-            <a href="contact.html" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-[#1e40af] hover:bg-blue-50 transition-colors" style="text-decoration:none;">Contact Us</a>
-          </div>
-
-          <div class="flex justify-end items-center w-[200px]">
-            <div id="login-section" class="flex">
-              <a href="login.html"><button class="px-5 py-2 cursor-pointer rounded-lg bg-[#1e40af] text-white text-sm font-semibold hover:brightness-90 hover:scale-105 transition-all duration-75 shadow-[0_4px_14px_rgba(59,91,219,0.3)] border-none">Login</button></a>
-            </div>
-            <div id="auth-section" class="hidden items-center gap-4 ml-1">
-              <div class="w-10 h-10 rounded-full bg-[#1e40af] text-white font-bold flex items-center justify-center cursor-pointer border-2 border-white dark:border-slate-800 ring-2 ring-primary/80 shadow-sm hover:shadow-md transition-all text-[15px]" onclick="localStorage.removeItem('isLoggedIn'); window.location.reload();" title="Click to Logout">
-                P
-              </div>
-            </div>
-          </div>
-        </nav>
+        <site-navbar></site-navbar>
 
         <main class="main-content">
             <!-- Hero -->
@@ -54,24 +26,30 @@
                             </h1>
                             <p class="hero-desc" data-i18n="about-desc">NextRole is the leading job matching service specialized in IT in Cambodia. We offer the best IT career for you, grab it to consult with us now!</p>
                             <div class="hero-buttons">
-                                <button class="btn-primary" data-i18n="register-now">Register Now</button>
-                                <button class="btn-secondary">View Our Story</button>
+                                <a href="/pages/register.html" class="btn-primary" data-i18n="register-now">Register Now</a>
+                                <a href="#mission" class="btn-secondary">View Our Story</a>
                             </div>
                         </div>
                         <div class="hero-image-wrapper animate-fade-in-right">
                             <div class="hero-image">
                                 <div class="hero-image-gradient"></div>
-                                <div class="hero-image-icon">
-                                    <img src="/asset/about-page-icon/groups.svg" alt="groups" class="hero-icon" />
+                                <div class="hero-image-icon" onclick="openLightbox(this.querySelector('img').src)">
+                                    <img src="/asset/about-page-icon/Professional-Employer-Organisation-PEO-Services-in-Cambodia-scaled.jpg" alt="groups" />
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Lightbox Modal -->
+                        <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+                            <span onclick="closeLightbox()" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
+                            <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; border-radius:12px;" />
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Mission -->
-            <section class="mission-section reveal">
+            <section class="mission-section reveal" id="mission">
                 <div class="mission-container">
                     <h2 class="mission-title" data-i18n="about-mission-title">Our Mission</h2>
                     <p class="mission-desc" data-i18n="about-mission-desc">"To empower every professional in Cambodia to find their perfect career match using cutting-edge technology and human-centric service."</p>
@@ -130,56 +108,11 @@
             </section>
         </main>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-grid">
-                    <div class="footer-brand">
-                        <div class="footer-logo">
-                            <img src="/asset/logo.svg" alt="NextRole" width="28" height="28" class="logo-img"/>
-                            <h2 class="footer-logo-text">NextRole</h2>
-                        </div>
-                        <p class="footer-desc" data-i18n="footer-desc">Connecting world-class talent with future leaders.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-heading" data-i18n="footer-explore">Explore</h4>
-                        <ul class="footer-links">
-                            <li><a class="footer-link" href="jobs.html">Browse Jobs</a></li>
-                            <li><a class="footer-link" href="#">How It Works</a></li>
-                            <li><a class="footer-link" href="#">Resources</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-heading" data-i18n="footer-legal">Legal</h4>
-                        <ul class="footer-links">
-                            <li><a class="footer-link" href="#">Privacy Policy</a></li>
-                            <li><a class="footer-link" href="#">Terms of Service</a></li>
-                            <li><a class="footer-link" href="#">Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>© 2026 NextRole. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-          const loginSec = document.getElementById('login-section');
-          const authSec = document.getElementById('auth-section');
-          if (loginSec) {
-            loginSec.classList.add('hidden');
-            loginSec.classList.remove('flex');
-            loginSec.style.display = 'none';
-          }
-          if (authSec) {
-            authSec.classList.remove('hidden');
-            authSec.classList.add('flex');
-            authSec.style.display = 'flex';
-          }
-        }
-      });
-    </script>
+    <site-footer></site-footer>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="/js/about-us.js"></script>
 </body>
 </html>

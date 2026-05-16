@@ -72,6 +72,7 @@ export function loginUser(email, password) {
     const sessionUser = { ...user };
     delete sessionUser.password;
     localStorage.setItem(STORAGE_KEY_CURRENT_USER, JSON.stringify(sessionUser));
+    localStorage.setItem('isLoggedIn', 'true');
     
     return sessionUser;
 }

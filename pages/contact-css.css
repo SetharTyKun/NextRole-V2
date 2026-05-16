@@ -1,10 +1,3 @@
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--color-text);
@@ -125,7 +118,7 @@ header {
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 36px;
     font-weight: 900;
     margin-bottom: 1.5rem;
     color: #0f172a;
@@ -134,7 +127,7 @@ header {
 
 .hero-subtitle {
     color: #64748b;
-    font-size: 1.125rem;
+    font-size: 15px;
 }
 
 /* Contact Section */
@@ -164,7 +157,7 @@ header {
 }
 
 .form-title {
-    font-size: 1.5rem;
+    font-size: 22px;
     font-weight: 800;
     margin-bottom: 2rem;
     color: #0f172a;
@@ -189,7 +182,7 @@ header {
 }
 
 .form-label {
-    font-size: 0.75rem;
+    font-size: 11px;
     font-weight: 700;
     color: #64748b;
     letter-spacing: 0.05em;
@@ -198,11 +191,11 @@ header {
 
 .form-input {
     width: 100%;
-    padding: 1rem;
+    padding: 1.2rem 1rem 0.6rem 1rem;
     border-radius: 1rem;
     border: 1px solid #e2e8f0;
     background-color: var(--color-bg);
-    font-size: 1rem;
+    font-size: 15px;
     transition: all 0.2s ease;
 }
 
@@ -214,11 +207,11 @@ header {
 
 .form-textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1.2rem 1rem 0.6rem 1rem;
     border-radius: 1rem;
     border: 1px solid #e2e8f0;
     background-color: var(--color-bg);
-    font-size: 1rem;
+    font-size: 15px;
     resize: vertical;
     transition: all 0.2s ease;
 }
@@ -235,7 +228,7 @@ header {
     color: #ffffff;
     border-radius: 1rem;
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 14px;
     letter-spacing: 0.05em;
     border: none;
     cursor: pointer;
@@ -512,4 +505,69 @@ header {
         justify-content: flex-start;
         overflow-x: auto;
     }
+    .hero-title {
+        font-size: 48px;
+    }
+}
+
+.form-error {
+    display: none;
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+    padding-left: 4px;
+}
+
+.form-input.error,
+.form-textarea.error {
+    border-color: #ef4444;
+    background-color: #fff;
+}
+
+.form-input.error:focus,
+.form-textarea.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+}
+
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.floating-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 15px;
+    color: #94a3b8;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background-color: var(--color-bg);
+    padding: 0 4px;
+}
+
+/* Float up when input has content or is focused */
+.form-input:focus ~ .floating-label,
+.form-input:not(:placeholder-shown) ~ .floating-label,
+.form-textarea:focus ~ .floating-label,
+.form-textarea:not(:placeholder-shown) ~ .floating-label {
+    top: -0.55rem;
+    left: 0.75rem;
+    font-size: 11px;
+    color: #3b82f6;
+}
+
+/* Red when error */
+.form-input.error ~ .floating-label,
+.form-textarea.error ~ .floating-label {
+    color: #ef4444;
+}
+.form-grid {
+    grid-template-columns: 1fr; /* was 1fr 1fr */
+}
+
+.form-error {
+    display: none;
 }

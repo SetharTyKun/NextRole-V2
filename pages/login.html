@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Login | NextRole — Your Next Career Move</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../components/navbar.js" defer></script>
+    <script src="../components/footer.js" defer></script>
     <style>
       body { font-family: 'Plus Jakarta Sans', sans-serif; }
       .glass {
@@ -129,17 +131,20 @@
       </div>
     </div>
 
-    <script>
-      function handleLogin(event) {
+    <script type="module">
+      import { loginUser } from '../js/auth.js';
+
+      window.handleLogin = function(event) {
         event.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         
-        if (email === 'pisethpanhavorn544@gmail.com' && password === '12345678') {
-          localStorage.setItem('isLoggedIn', 'true');
+        try {
+          loginUser(email, password);
+          // Redirect on success
           window.location.href = '../index.html';
-        } else {
-          alert('Invalid email or password. Please try again.');
+        } catch (error) {
+          alert(error.message);
         }
       }
     </script>
