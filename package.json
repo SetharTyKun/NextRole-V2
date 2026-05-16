@@ -4,6 +4,11 @@
     "tailwindcss": "^4.2.4"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build && node scripts/copy-static.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite-plugin-static-copy": "^4.1.0"
   }
 }
