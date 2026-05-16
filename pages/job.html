@@ -118,7 +118,7 @@
                                         <label class="flex items-center gap-3 cursor-pointer group">
                                             <input type="checkbox" id="filter-fulltime"
                                                 class="rounded text-primary focus:ring-primary"
-                                                onchange="window.handleFilterChange()" checked>
+                                                onchange="window.handleFilterChange()">
                                             <span
                                                 class="text-sm group-hover:text-primary transition-colors"
                                                 data-i18n="filter-fulltime">Full-time</span>
@@ -214,17 +214,6 @@
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label
-                                        class="text-sm font-bold text-muted uppercase tracking-tighter block mb-3"
-                                        data-i18n="filter-salary">Salary Range</label>
-                                    <input type="range" class="w-full accent-primary">
-                                    <div class="flex justify-between text-xs text-muted mt-2 font-bold">
-                                        <span>$0</span>
-                                        <span id="salary-max-label">$20k+</span>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </aside>
@@ -237,7 +226,7 @@
                             data-category="Engineering" data-type="Full-time" data-experience="Mid Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                     <img src="https://www.google.com/favicon.ico" class="w-8 h-8">
                                 </div>
                                 <div class="flex-1">
@@ -272,12 +261,10 @@
                                             <span>Just now</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Software Engineer at Google')"
-                                            data-i18n="job-apply">Apply Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +275,7 @@
                             data-category="Design" data-type="Full-time" data-experience="Senior Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -318,12 +305,10 @@
                                             <span>2d ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_ux_designer.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_ux_designer.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Senior UX Designer')"
-                                            data-i18n="job-apply">Apply Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -334,7 +319,7 @@
                             data-category="Engineering" data-type="Remote" data-experience="Mid Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -364,12 +349,10 @@
                                             <span>5h ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_backend_developer.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_backend_developer.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Backend Developer (Node.js)')"
-                                            data-i18n="job-apply">Apply Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +363,7 @@
                             data-category="Design" data-type="Full-time" data-experience="Entry Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -410,12 +393,10 @@
                                             <span>1w ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_product_designer.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_product_designer.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Product Designer')"
-                                            data-i18n="job-apply">Apply Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +407,7 @@
                             data-category="Marketing" data-type="Full-time" data-experience="Senior Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -456,12 +437,10 @@
                                             <span>3d ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_marketing_manager.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_marketing_manager.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Marketing Manager')"
-                                            data-i18n="job-apply">Apply Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -472,7 +451,7 @@
                             data-category="Engineering" data-type="Contract" data-experience="Mid Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -502,12 +481,10 @@
                                             <span>1d ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_qa_engineer.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_qa_engineer.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('QA Engineer')" data-i18n="job-apply">Apply
-                                            Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +495,7 @@
                             data-category="Support" data-type="Full-time" data-experience="Entry Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -548,12 +525,10 @@
                                             <span>4d ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_hr_specialist.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_hr_specialist.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('HR Specialist')" data-i18n="job-apply">Apply
-                                            Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +539,7 @@
                             data-category="Data Science" data-type="Full-time" data-experience="Mid Level">
                             <div class="flex flex-col md:flex-row gap-6">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
+                                    class="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center shrink-0">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
@@ -594,12 +569,10 @@
                                             <span>6h ago</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between pt-6 border-t border-border">
-                                        <a href="job_details_data_analyst.html" class="text-primary font-extrabold text-sm hover:underline cursor-pointer" data-i18n="job-details">View Details</a>
-                                        <button
+                                    <div class="flex items-center justify-end pt-6 border-t border-border">
+                                        <a href="job_details_data_analyst.html"
                                             class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer"
-                                            onclick="window.handleApplyNow('Data Analyst')" data-i18n="job-apply">Apply
-                                            Now</button>
+                                            data-i18n="job-details">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -609,11 +582,9 @@
             </section>
         </main>
 
-        <site-footer></site-footer>
     </div>
 
     <script src="../components/navbar.js"></script>
-    <script src="../components/footer.js"></script>
     <script src="../js/job-filter.js"></script>
 </body>
 

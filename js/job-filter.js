@@ -6,12 +6,8 @@
     const filterContract   = document.getElementById('filter-contract');
     const filterRemote     = document.getElementById('filter-remote');
     const categoryBoxes    = document.querySelectorAll('input[name="category"]');
-    const salarySlider     = document.querySelector('input[type="range"]');
-    const salaryMaxLabel   = document.getElementById('salary-max-label');
     const cards            = document.querySelectorAll('.job-card');
     const cardFeed         = cards.length ? cards[0].parentElement : null;
-
-    const SALARY_MAX = 20000;
 
     // ── Helpers ─────────────────────────────────────────────────────────────
     function iconSibling(card, iconName) {
@@ -21,18 +17,6 @@
             }
         }
         return '';
-    }
-
-    function parseMaxSalary(card) {
-        const text = iconSibling(card, 'currency_exchange');
-        const nums = text.match(/\d[\d,]*/g);
-        if (!nums) return SALARY_MAX;
-        const values = nums.map(n => parseInt(n.replace(/,/g, ''), 10));
-        return Math.max(...values);
-    }
-
-    function formatSalary(val) {
-        return val >= SALARY_MAX ? '$20k+' : '$' + val.toLocaleString();
     }
 
     // ── Empty state ──────────────────────────────────────────────────────────
@@ -71,17 +55,14 @@
             .filter(cb => cb.checked)
             .map(cb => cb.value.toLowerCase());
 
-        const maxSalary    = salarySlider ? parseInt(salarySlider.value) : SALARY_MAX;
-
         let visibleCount = 0;
 
         cards.forEach(card => {
             const cardType     = (card.dataset.type     || '').toLowerCase();
             const cardCategory = (card.dataset.category || '').toLowerCase();
             const cardTitle    = (card.querySelector('h4')?.textContent || '').toLowerCase();
-            const cardCompany    = iconSibling(card, 'apartment').toLowerCase();
-            const cardLocation   = iconSibling(card, 'location_on');
-            const cardSalaryMax  = parseMaxSalary(card);
+            const cardCompany  = iconSibling(card, 'apartment').toLowerCase();
+            const cardLocation = iconSibling(card, 'location_on');
 
             // 1. Keyword: matches title or company name
             if (query && !cardTitle.includes(query) && !cardCompany.includes(query)) {
@@ -104,11 +85,6 @@
                 return hide(card);
             }
 
-            // 5. Salary max
-            if (maxSalary < SALARY_MAX && cardSalaryMax > maxSalary) {
-                return hide(card);
-            }
-
             show(card);
             visibleCount++;
         });
@@ -127,31 +103,14 @@
         card.style.display = '';
     }
 
-    // ── Salary slider label ──────────────────────────────────────────────────
-    function initSalarySlider() {
-        if (!salarySlider) return;
-        salarySlider.min   = 0;
-        salarySlider.max   = SALARY_MAX;
-        salarySlider.value = SALARY_MAX;
-        if (salaryMaxLabel) salaryMaxLabel.textContent = '$20k+';
-
-        salarySlider.addEventListener('input', function () {
-            const val = parseInt(this.value);
-            if (salaryMaxLabel) salaryMaxLabel.textContent = formatSalary(val);
-            applyFilters();
-        });
-    }
-
     // ── Clear all filters ────────────────────────────────────────────────────
     window.handleClearFilters = function () {
         if (searchQuery)    searchQuery.value    = '';
         if (searchLocation) searchLocation.value = '';
-        if (filterFulltime) filterFulltime.checked = true;
+        if (filterFulltime) filterFulltime.checked = false;
         if (filterContract) filterContract.checked = false;
         if (filterRemote)   filterRemote.checked   = false;
         categoryBoxes.forEach(cb => cb.checked = false);
-        if (salarySlider)   { salarySlider.value = SALARY_MAX; }
-        if (salaryMaxLabel) { salaryMaxLabel.textContent = '$20k+'; }
         applyFilters();
     };
 
@@ -181,7 +140,6 @@
     }
 
     // ── Init ─────────────────────────────────────────────────────────────────
-    initSalarySlider();
     readUrlParams();
     applyFilters();
 })();
