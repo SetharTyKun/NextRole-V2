@@ -43,26 +43,26 @@
 
         <main class="flex-grow flex flex-col">
             <!-- Hero Search -->
-            <section class="bg-secondary py-16 px-6 relative overflow-hidden">
+            <section class="bg-secondary py-10 lg:py-16 px-4 md:px-8 relative overflow-hidden">
                 <div class="absolute inset-0 opacity-10">
                     <div
                         class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl -translate-x-1/2 -translate-y-1/2">
                     </div>
                 </div>
                 <div class="mx-auto max-w-4xl text-center relative z-10 animate__animated animate__fadeIn">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6" data-i18n="jobs-hero-title">Find
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 lg:mb-6" data-i18n="jobs-hero-title">Find
                         Your Dream Job</h1>
-                    <p class="text-blue-100 mb-10 text-lg" data-i18n="jobs-hero-subtitle">Browse through thousands of
+                    <p class="text-blue-100 mb-6 lg:mb-10 text-base lg:text-lg" data-i18n="jobs-hero-subtitle">Browse through thousands of
                         high-quality job openings across all industries.</p>
                     <div
                         class="bg-surface p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-3xl mx-auto">
-                        <div class="flex-1 flex items-center px-4 border-r border-border">
+                        <div class="flex-1 flex items-center px-4 py-2 md:py-0 border-b border-border md:border-b-0 md:border-r">
                             <span class="material-symbols-outlined text-muted mr-2">search</span>
                             <input type="text" id="jobs-search-query" placeholder="Job title or keyword"
                                 data-i18n="search-placeholder"
                                 class="bg-transparent border-none focus:ring-0 w-full text-sm font-medium">
                         </div>
-                        <div class="flex-1 flex items-center px-4">
+                        <div class="flex-1 flex items-center px-4 py-2 md:py-0">
                             <span class="material-symbols-outlined text-muted mr-2">location_on</span>
                             <select id="jobs-search-location"
                                 class="bg-transparent border-none focus:ring-0 w-full text-sm font-medium appearance-none cursor-pointer">
@@ -102,14 +102,19 @@
                 </div>
             </section>
 
-            <section class="mx-auto max-w-7xl px-6 py-16 flex-grow w-full">
-                <div class="flex flex-col lg:flex-row gap-16">
+            <section class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-8 lg:py-16 flex-grow w-full">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
                     <!-- Filters Sidebar -->
-                    <aside class="w-full lg:w-72 space-y-8 animate__animated animate__fadeInLeft">
+                    <aside class="w-full lg:w-72 shrink-0 animate__animated animate__fadeInLeft">
                         <div>
-                            <h3 class="text-lg font-extrabold mb-4" data-i18n="filter-title">Filters
-                            </h3>
-                            <div class="space-y-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-extrabold" data-i18n="filter-title">Filters</h3>
+                                <button id="filter-toggle" class="lg:hidden flex items-center gap-1.5 text-sm font-semibold text-primary">
+                                    <span id="filter-toggle-label">Show</span>
+                                    <svg id="filter-chevron" class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
+                            </div>
+                            <div id="filter-panel" class="hidden lg:block space-y-6">
                                 <div>
                                     <label
                                         class="text-sm font-bold text-muted uppercase tracking-tighter block mb-3"
@@ -586,6 +591,20 @@
 
     <script src="../components/navbar.js"></script>
     <script src="../js/job-filter.js"></script>
+    <script>
+        const filterToggle = document.getElementById('filter-toggle');
+        const filterPanel = document.getElementById('filter-panel');
+        const filterToggleLabel = document.getElementById('filter-toggle-label');
+        const filterChevron = document.getElementById('filter-chevron');
+        if (filterToggle) {
+            filterToggle.addEventListener('click', () => {
+                const isHidden = filterPanel.classList.contains('hidden');
+                filterPanel.classList.toggle('hidden');
+                filterToggleLabel.textContent = isHidden ? 'Hide' : 'Show';
+                filterChevron.style.transform = isHidden ? 'rotate(180deg)' : '';
+            });
+        }
+    </script>
 </body>
 
 </html>
