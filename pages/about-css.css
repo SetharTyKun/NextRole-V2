@@ -110,7 +110,7 @@ header {
 
 /* Hero Section */
 .hero-section {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     background-color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -123,8 +123,8 @@ header {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -142,7 +142,7 @@ header {
 }
 
 .hero-title {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 800;
     color: #0f172a;
     line-height: 1.2;
@@ -218,7 +218,8 @@ header {
 
 .hero-image-icon img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: inherit;
     transition: transform 0.3s ease;
@@ -230,7 +231,7 @@ header {
 
 /* Mission Section */
 .mission-section {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1rem;
     background-color: var(--color-bg);
     text-align: center;
 }
@@ -256,7 +257,7 @@ header {
 
 /* Values Section */
 .values-section {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1rem;
     background-color: var(--color-bg);
 }
 
@@ -432,37 +433,45 @@ header {
     color: #64748b;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
+/* md: 768px — tablet */
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 3rem 2rem;
     }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        align-items: center;
-        gap: 4px;
-        flex: 1;
-        justify-content: center;
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
     }
     .hero-title {
-        font-size: 48px;
+        font-size: 32px;
     }
+    .hero-image-icon img {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+    .mission-section,
+    .values-section {
+        padding: 3rem 2rem;
+    }
+}
 
-    .mission-title,
-    .values-title {
-        font-size: 26px;
+/* lg: 1024px — desktop */
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 4rem 1.5rem;
+    }
+    .hero-grid {
+        gap: 4rem;
+    }
+    .hero-title {
+        font-size: 36px;
+    }
+    .mission-section,
+    .values-section {
+        padding: 4rem 1.5rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4rem;
     }
 }

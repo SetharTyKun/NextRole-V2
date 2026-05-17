@@ -106,7 +106,7 @@ header {
 /* Hero Section */
 .hero-section {
     background-color: var(--color-bg);
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
 }
 
 .hero-container {
@@ -118,7 +118,7 @@ header {
 }
 
 .hero-title {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 900;
     margin-bottom: 1.5rem;
     color: #0f172a;
@@ -132,7 +132,7 @@ header {
 
 /* Contact Section */
 .contact-section {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     background-color: var(--color-surface);
     position: relative;
 }
@@ -144,14 +144,14 @@ header {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
 /* Contact Form Card */
 .contact-form-card {
     background-color: #ffffff;
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-radius: 2rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -171,7 +171,7 @@ header {
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
@@ -480,33 +480,45 @@ header {
     color: #64748b;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto;
+/* md: 768px — tablet */
+@media (min-width: 768px) {
+    .hero-section,
+    .contact-section {
+        padding: 3rem 2rem;
     }
     .hero-title {
-        font-size: 48px;
+        font-size: 32px;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact-form-card {
+        padding: 2rem;
+    }
+}
+
+/* lg: 1024px — desktop */
+@media (min-width: 1024px) {
+    .hero-section,
+    .contact-section {
+        padding: 4rem 1.5rem;
+    }
+    .hero-title {
+        font-size: 36px;
+    }
+    .contact-grid {
+        gap: 4rem;
+    }
+    .contact-form-card {
+        padding: 2.5rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4rem;
     }
 }
 
@@ -563,11 +575,4 @@ header {
 .form-input.error ~ .floating-label,
 .form-textarea.error ~ .floating-label {
     color: #ef4444;
-}
-.form-grid {
-    grid-template-columns: 1fr; /* was 1fr 1fr */
-}
-
-.form-error {
-    display: none;
 }
